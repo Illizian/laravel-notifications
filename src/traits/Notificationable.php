@@ -10,7 +10,17 @@ trait NotificationableTrait
 	 */
 	public function notifications()
 	{
-		return $this->hasMany('Illizian\Notifications\Models\Notifications', 'to_user_id')->orderBy('created_at', 'desc');;
+		return $this->hasMany('Illizian\Notifications\Models\Notifications', 'to_user_id')->with('from')->orderBy('created_at', 'desc');;
+	}
+
+	/**
+	 * Unread Notifications Relationship
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function unreadNotifications()
+	{
+		return $this->hasMany('Illizian\Notifications\Models\Notifications', 'to_user_id')->with('from')->unread()->orderBy('created_at', 'desc');;
 	}
 
 }

@@ -33,6 +33,17 @@ return array(
 	|
 	*/
 
-	'route_prefix' => 'notifications'
+	'route_prefix' => 'notifications',
+
+	/*
+	|--------------------------------------------------------------------------
+	| Notifications Route Filter
+	|--------------------------------------------------------------------------
+	|
+	| Set the filter(s) to be used for notifications routes
+	|
+	*/
+
+	'route_filter' => 'auth'
 
 );

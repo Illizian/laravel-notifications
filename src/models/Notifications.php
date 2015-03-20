@@ -7,11 +7,14 @@ class Notifications extends Eloquent
 {
 
 	protected $table;
+	protected $hidden = array('from_user_id', 'to_user_id'); // Hide relationship columns
 
 	public function __construct()
 	{
 		$this->table = Config::get('notifications::config.table_name');
 	}
+
+
 
 	/**
 	 * From User Relationship
@@ -43,6 +46,16 @@ class Notifications extends Eloquent
 		return $query->where('to_user_id', '=', $userId)
 					 ->where('url', '=', $url)
 					 ->where('read', '=', false);
+	}
+
+	/**
+	 * Scope for unread notifications
+	 *
+	 * @return \Illuminate\Database\Query\Builder
+	 */
+	public function scopeUnread($query)
+	{
+		return $query->where('read', '=', false);
 	}
 
 }
