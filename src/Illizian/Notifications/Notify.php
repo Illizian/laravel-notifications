@@ -10,7 +10,7 @@ class Notify
 	 * @param Illuminate\Database\Eloquent\Model  $from     the User the notification was sent from.
 	 * @param string                              $message  the notification message.
 	 * @param string                              $url      the relative url related to the message
-	 * @return Illuminate\Database\Eloquent\Model  The new notification
+	 * @return boolean  result of the save call
 	 */
 	public static function send($to, $from, $message, $url)
 	{
@@ -31,7 +31,7 @@ class Notify
 	 * Mark a notification as read.
 	 *
 	 * @param int  $id  the id of the notification.
-	 * @return Illuminate\Database\Eloquent\Model  The new notification
+	 * @return boolean  result of the save call
 	 */
 	public static function read($id)
 	{
