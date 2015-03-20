@@ -1,0 +1,26 @@
+{
+    "name": "illizian/notifications",
+    "description": "",
+    "authors": [
+        {
+            "name": "Alex Scotton (Illizian)",
+            "email": "alex@alexscotton.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers",
+            "src/traits",
+            "src/models"
+        ],
+        "psr-0": {
+            "Illizian\\Notifications\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
