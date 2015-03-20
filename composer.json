@@ -15,6 +15,7 @@
         "classmap": [
             "src/migrations",
             "src/controllers",
+            "src/composers",
             "src/traits",
             "src/models"
         ],

@@ -51,6 +51,9 @@ class NotificationsServiceProvider extends ServiceProvider {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('Notify', 'Illizian\Notifications\Facades\Notify');
         });
+
+        // Assign view composers
+        $this->app->view->composer(['notifications::list', 'notifications::dropdown'], 'Illizian\Notifications\Composers\NotificationComposer');
 	}
 
 	/**
