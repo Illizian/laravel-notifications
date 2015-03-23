@@ -6,7 +6,6 @@ A basic Laravel package that provides Facebook style notifications. Notification
 
 1. Add to your composer.json
     ``` $ composer require illizian\notifications```
-
 2. Add the Service Provider to your config/app.php file
 ```php
 'providers' => array(
@@ -14,7 +13,6 @@ A basic Laravel package that provides Facebook style notifications. Notification
     'Illizian\Notifications\NotificationsServiceProvider'
 )
 ```
-
 3. Update your User model
 ```php
 use Illizian\Notifications\Traits\NotificationableTrait;
@@ -29,7 +27,6 @@ class User extends Eloquent
 }
 ```
 _This package assumes your User model's classname is "User" - see [Configuration](#configuration) on how to override this_
-
 4. Run the package migration
     ``` $ php artisan migrate --package="illizian\notifications"```
 
