@@ -7,7 +7,7 @@
 |
 */
 
-Route::group(array('prefix' => Config::get('notifications::config.route_prefix'), 'before' => Config::get('notifications::config.route_filter')), function() {
+Route::group(array('prefix' => Config::get('notifications::config.package_prefix'), 'before' => Config::get('notifications::config.route_filter')), function() {
 
 	Route::group(array('prefix' => 'api'), function() {
 		

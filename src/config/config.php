@@ -33,7 +33,7 @@ return array(
 	|
 	*/
 
-	'route_prefix' => 'notifications',
+	'package_prefix' => 'notifications',
 
 	/*
 	|--------------------------------------------------------------------------

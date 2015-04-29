@@ -1,6 +1,6 @@
 {
     "name": "illizian/notifications",
-    "version": "1.0.0-RC1",
+    "version": "1.0.0-RC2",
     "description": "A Laravel 4 package that provides Facebook style notifications",
     "authors": [
         {

@@ -4,6 +4,18 @@ class Notify
 {
 
 	/**
+	 * Emit event with notification content
+	 *
+	 * @param Illuminate\Database\Eloquent\Model  $notification  the notification
+	 * @return null
+	 */
+	private function emitEvent($type, $notification)
+	{
+		$namespace = Config::get('notifications::config.package_prefix') . '.' . $type;
+		Event::fire($namespace, array($notification));
+	}
+
+	/**
 	 * Notify a user.
 	 *
 	 * @param Illuminate\Database\Eloquent\Model  $to       the User the notification should be sent to.
@@ -23,6 +35,9 @@ class Notify
 		$notification->message = $message;
 		$notification->url = $url;
 
+		// Trigger event listeners
+		$this->emitEvent('send', $notification);
+
 		// Save the new notification
 		return $notification->save();
 	}
@@ -40,9 +55,13 @@ class Notify
 
 		// Update the read status
 		$notification->read = true;
+		$notification->save();
+
+		// Trigger event listeners
+		$this->emitEvent('read', $notification);
 
 		// Save the updated notification
-		return $notification->save();
+		return $notification;
 	}
 	
 }
