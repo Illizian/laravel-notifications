@@ -11,8 +11,8 @@ class Notify
 	 */
 	private function emitEvent($type, $notification)
 	{
-		$namespace = Config::get('notifications::config.package_prefix') . '.' . $type;
-		Event::fire($namespace, array($notification));
+		$namespace = \Config::get('notifications::config.package_prefix') . '.' . $type;
+		\Event::fire($namespace, array($notification));
 	}
 
 	/**
@@ -24,7 +24,7 @@ class Notify
 	 * @param string                              $url      the relative url related to the message
 	 * @return boolean  result of the save call
 	 */
-	public static function send($to, $from, $message, $url)
+	public function send($to, $from, $message, $url)
 	{
 		// Create a new instance of the Notifications model
 		$notification = new Models\Notifications();
@@ -48,7 +48,7 @@ class Notify
 	 * @param int  $id  the id of the notification.
 	 * @return boolean  result of the save call
 	 */
-	public static function read($id)
+	public function read($id)
 	{
 		// Fetch the notification from the database
 		$notification = Models\Notifications::find($id);
