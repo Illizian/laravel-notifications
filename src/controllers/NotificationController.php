@@ -23,7 +23,10 @@ class NotificationController extends \BaseController
 
 	public function mark_as_read($id)
 	{
-		return Notify::read($id);
+		$notification = Notifications::find($id);
+		$notification->read = true;
+		$notification->save();
+		return $notification;
 	}
 
 }
